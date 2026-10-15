@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -18,45 +19,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  assets:
-    - assets/circles_frame.png
-    - assets/qAwEOw.png
-    - assets/ZticoQ.png
-    - assets/kj6fJS.png
-    - assets/hhUUNe.png
-    - assets/I-6U2b.png
-    - assets/coin_voice_clone.png
-    - assets/coin_ai_singer.png
-    - assets/coin_voice_cleaner.png
-    - assets/coin_music_composer.png
-    - assets/lbl_voice_clone.png
-    - assets/lbl_ai_singer.png
-    - assets/lbl_voice_cleaner.png
-    - assets/lbl_music_composer.png
-    - assets/txt_voice_clone.png
-    - assets/txt_ai_singer.png
-    - assets/txt_voice_cleaner.png
-    - assets/txt_music_composer.png
-    - assets/image_mpu28O.png
-    - assets/image_WKW8lD.png
-    - assets/image_CfcwW2.png
-    - assets/image_QWNFqQ.png
-    - assets/image_nXbJZN.png
-    - assets/image_8VLLvs.png
-    - assets/image_O6DHcH.png
-    - assets/btn_voice_clone.png
-    - assets/btn_voice_cleaner.png
-    - assets/btn_voice_transform.png
-    - assets/btn_music_composer.png
-    - assets/btn_effects.png
-    - assets/btn_mastering.png
-    - assets/btn_track_separation.png
-    - assets/btn_tools.png
-    - assets/btn_settings.png
-    - assets/JBqIV-.png
-    - assets/wjrsfx.png
-    - assets/xQxjPu.png
-    - assets/cYQqJz.png
-    - assets/ttInrd.png
-    
