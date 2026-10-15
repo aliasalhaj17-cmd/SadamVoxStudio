@@ -1,7 +1,7 @@
 workflows:
   android-workflow:
-    name: SADAM VOX Build
-    max_build_duration: 10
+    name: SADAM VOX Build Workflow
+    max_build_duration: 15
     instance_type: mac_mini_m1
     environment:
       flutter: stable
@@ -9,13 +9,14 @@ workflows:
       events:
         - push
     scripts:
-      - name: Create Dummy Android Folder
+      - name: Auto Create Android Studio Environment
         script: |
-          mkdir -p android
+          flutter create . --platforms=android --no-overwrite
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
-      - name: Build Android APK
+      - name: Force Resolve Dependencies and Build
         script: |
-          flutter build apk --release --no-pub --no-validate-project
+          flutter pub get
+          flutter build apk --release --no-validate-project
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
       
