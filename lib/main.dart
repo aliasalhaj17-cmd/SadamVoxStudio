@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 
 void main() {
   runApp(const SadamVoxUltimateStudio());
@@ -70,24 +69,20 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
     );
   }
 
-  // 1. الواجهة الأفقية الكاملة والاحترافية للآيباد (iPad Layout)
   Widget _buildLandscapeLayout(BoxConstraints constraints) {
     final leftSidebarWidth = constraints.maxWidth * 0.18;
     final rightSidebarWidth = constraints.maxWidth * 0.15;
 
     return Row(
       children: [
-        // القائمة الجانبية اليسرى: لوحات المشروعات الخمسة المخزنة
-        _buildLeftProjectsSidebar(leftSidebarWidth),
+        // القائمة الجانبية اليسرى المستخرجة تلقائياً من الرابط عبر الكود المحدث
+        _buildLeftNetworkSidebar(leftSidebarWidth),
 
-        // المنطقة المركزية واليسرى الكبرى
         Expanded(
           child: Column(
             children: [
-              // السقف العلوي: أزرار التحكم والشعارات
               _buildTopControlHeader(constraints.maxHeight * 0.13),
               
-              // المنطقة الوسطى: إطار الميداليات والنوتات العائمة
               Expanded(
                 flex: 4,
                 child: ScaleTransition(
@@ -99,32 +94,30 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
                         return Stack(
                           alignment: Alignment.center,
                           children: [
-                            Image.asset('assets/circles_frame.png', width: frameConstraints.maxWidth, fit: BoxFit.contain),
+                            Image.network('https://googleapis.com', width: frameConstraints.maxWidth, fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox()),
                             
-                            // النوتات اللحنية العائمة بالخلفية
                             Positioned.fill(
                               child: Opacity(
                                 opacity: 0.5,
                                 child: Stack(
                                   children: [
-                                    Positioned(left: frameConstraints.maxWidth * 0.08, top: frameConstraints.maxHeight * 0.2, child: Image.asset('assets/qAwEOw.png', height: frameConstraints.maxHeight * 0.2)),
-                                    Positioned(left: frameConstraints.maxWidth * 0.3, bottom: frameConstraints.maxHeight * 0.15, child: Image.asset('assets/ZticoQ.png', height: frameConstraints.maxHeight * 0.2)),
-                                    Positioned(left: frameConstraints.maxWidth * 0.52, top: frameConstraints.maxHeight * 0.1, child: Image.asset('assets/kj6fJS.png', height: frameConstraints.maxHeight * 0.26)),
-                                    Positioned(left: frameConstraints.maxWidth * 0.74, bottom: frameConstraints.maxHeight * 0.18, child: Image.asset('assets/hhUUNe.png', height: frameConstraints.maxHeight * 0.18)),
+                                    Positioned(left: frameConstraints.maxWidth * 0.08, top: frameConstraints.maxHeight * 0.2, child: Image.network('https://googleapis.com', height: frameConstraints.maxHeight * 0.2, errorBuilder: (c, e, s) => const SizedBox())),
+                                    Positioned(left: frameConstraints.maxWidth * 0.3, bottom: frameConstraints.maxHeight * 0.15, child: Image.network('https://googleapis.com', height: frameConstraints.maxHeight * 0.2, errorBuilder: (c, e, s) => const SizedBox())),
+                                    Positioned(left: frameConstraints.maxWidth * 0.52, top: frameConstraints.maxHeight * 0.1, child: Image.network('https://googleapis.com', height: frameConstraints.maxHeight * 0.26, errorBuilder: (c, e, s) => const SizedBox())),
+                                    Positioned(left: frameConstraints.maxWidth * 0.74, bottom: frameConstraints.maxHeight * 0.18, child: Image.network('https://googleapis.com', height: frameConstraints.maxHeight * 0.18, errorBuilder: (c, e, s) => const SizedBox())),
                                   ],
                                 ),
                               ),
                             ),
                             
-                            // الميداليات الذهبية واللافتات في الواجهة
                             Positioned.fill(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  _buildFeatureColumn('assets/coin_voice_clone.png', 'assets/lbl_voice_clone.png', 'assets/txt_voice_clone.png', frameConstraints.maxHeight),
-                                  _buildFeatureColumn('assets/coin_ai_singer.png', 'assets/lbl_ai_singer.png', 'assets/txt_ai_singer.png', frameConstraints.maxHeight),
-                                  _buildFeatureColumn('assets/coin_voice_cleaner.png', 'assets/lbl_voice_cleaner.png', 'assets/txt_voice_cleaner.png', frameConstraints.maxHeight),
-                                  _buildFeatureColumn('assets/coin_music_composer.png', 'assets/lbl_music_composer.png', 'assets/txt_music_composer.png', frameConstraints.maxHeight),
+                                  _buildFeatureColumn('coin_voice_clone.png', 'lbl_voice_clone.png', 'txt_voice_clone.png', frameConstraints.maxHeight),
+                                  _buildFeatureColumn('coin_ai_singer.png', 'lbl_ai_singer.png', 'txt_ai_singer.png', frameConstraints.maxHeight),
+                                  _buildFeatureColumn('coin_voice_cleaner.png', 'lbl_voice_cleaner.png', 'txt_voice_cleaner.png', frameConstraints.maxHeight),
+                                  _buildFeatureColumn('coin_music_composer.png', 'lbl_music_composer.png', 'txt_music_composer.png', frameConstraints.maxHeight),
                                 ],
                               ),
                             )
@@ -136,21 +129,18 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
                 ),
               ),
               
-              // اللوحة السفلية الضخمة: المشغل الرئيسي + لوحات مراقبة النظام السحابي
               Expanded(
                 flex: 5,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                   child: Row(
                     children: [
-                      // لوحة المشغل الرئيسي الفخم جهة اليسار
                       Expanded(
                         flex: 4,
-                        child: Image.asset('assets/image_mpu28O.png', fit: BoxFit.contain),
+                        child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox()),
                       ),
                       const SizedBox(width: 4),
                       
-                      // لوحات المراقبة والمعالجة وحالة النظام والملفات السريعة رص متتالي
                       Expanded(
                         flex: 5,
                         child: Column(
@@ -158,16 +148,16 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
                             Expanded(
                               child: Row(
                                 children: [
-                                  Expanded(child: Image.asset('assets/image_WKW8lD.png', fit: BoxFit.contain)), // نظرة عامة
-                                  Expanded(child: Image.asset('assets/image_CfcwW2.png', fit: BoxFit.contain)), // حالة النظام
+                                  Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
+                                  Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
                                 ],
                               ),
                             ),
                             Expanded(
                               child: Row(
                                 children: [
-                                  Expanded(child: Image.asset('assets/image_QWNFqQ.png', fit: BoxFit.contain)), // المعالجة
-                                  Expanded(child: Image.asset('assets/image_nXbJZN.png', fit: BoxFit.contain)), // ملفات سريعة
+                                  Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
+                                  Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
                                 ],
                               ),
                             ),
@@ -176,17 +166,16 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
                       ),
                       const SizedBox(width: 4),
 
-                      // المربع لإدارة المشاريع الأربعة (تفكيك كارد الأزرار الأربعة)
                       Container(
                         width: constraints.maxWidth * 0.14,
                         padding: const EdgeInsets.symmetric(vertical: 2),
                         child: Column(
-                          mainAxisAlignment: Main => main.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Expanded(child: _buildGridSpriteButton('assets/image_8VLLvs.png', 0)), // استيراد
-                            Expanded(child: _buildGridSpriteButton('assets/image_8VLLvs.png', 1)), // تصدير
-                            Expanded(child: _buildGridSpriteButton('assets/image_8VLLvs.png', 2)), // فتح
-                            Expanded(child: _buildGridSpriteButton('assets/image_8VLLvs.png', 3)), // جديد
+                            Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
+                            Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
+                            Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
+                            Expanded(child: Image.network('https://googleapis.com', fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox())),
                           ],
                         ),
                       ),
@@ -198,14 +187,12 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
           ),
         ),
 
-        // القائمة الجانبية اليمنى: أزرار الخدمات والوظائف التسعة
         _buildRightSidebarMenu(rightSidebarWidth),
       ],
     );
   }
 
-  // دالة تفكيك قائمة المشروعات الخمسة عمودياً
-  Widget _buildLeftProjectsSidebar(double width) {
+  Widget _buildLeftNetworkSidebar(double width) {
     return Container(
       width: width,
       decoration: const BoxDecoration(border: Border(right: BorderSide(color: Color(0xFF3A2A14), width: 1.5))),
@@ -219,9 +206,4 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-                  child: AspectRatio(
-                    aspectRatio: 2.8,
-                    child: ClipRect(
-                      child: CustomPaint(
-                        
+                  
