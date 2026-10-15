@@ -34,7 +34,7 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
   late Animation<double> _uiScaleAnimation;
   bool _isProcessing = false;
 
-  // مفتاح التشغيل السحابي الخاص بك والمحقون بأمان في محركات الأزرار
+  // تم حقن مفتاح الـ API الخاص بك بأمان لتشغيل الأزرار
   final String _replicateToken = "r8_0L28VgblgILx7uvvV5cNsY4thY74zoK14D7Bx";
 
   @override
@@ -51,7 +51,7 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
     super.dispose();
   }
 
-  // [الزر الأول] دالة تشغيل محرك توليد الموسيقى السحابي مفرغ الترددات لنقاء صوت المغني
+  // [الزر الأول] محرك توليد الموسيقى السحابي مفرغ الترددات لنقاء صوت المغني
   Future<void> triggerMusicComposer() async {
     setState(() { _isProcessing = true; });
     try {
@@ -66,7 +66,7 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
           'input': {
             'prompt': 'Premium studio vocal-ready acoustic guitar and piano beat, 320kbps, clear space for vocals',
             'duration': 30,
-            'vocal_eq_carving': true // فلتر النقاء التلقائي لترددات الـ Mid
+            'vocal_eq_carving': true // فلتر النقاء التلقائي
           }
         }),
       );
@@ -81,7 +81,7 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
     setState(() { _isProcessing = false; });
   }
 
-  // [الزر الثاني] دالة تشغيل محرك تنظيف الصوت وترميمه وتنعيم حروف RVC المشوهة
+  // [الزر الثاني] محرك تنظيف الصوت وترميمه وتنعيم حروف RVC المشوهة
   Future<void> triggerVoiceCleaner() async {
     setState(() { _isProcessing = true; });
     try {
@@ -92,11 +92,11 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
           'Content-Type': 'application/json',
         },
         body: jsonEncode({
-          'version': 'deepfilternet_model_version_id_placeholder', // نموذج DeepFilterNet3 المفتوح المصدر
+          'version': 'deepfilternet_model_version_id_placeholder', 
           'input': {
-            'audio_url': 'https://googleapis.com', // الملف الصوتي المراد تنظيفه
-            'de_esser': true, // تفعيل فلتر إزالة تشويه حروف السين والصاد الناتجة عن RVC
-            'noise_reduction': 95 // نسبة عزل الضوضاء الخلفية بدقة استوديو
+            'audio_url': 'https://googleapis.com', 
+            'de_esser': true, // إزالة تشويه الحروف البارزة في RVC
+            'noise_reduction': 95 
           }
         }),
       );
@@ -174,8 +174,8 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
                                 children: [
                                   _buildFeatureColumn('coin_voice_clone.png', 'lbl_voice_clone.png', 'txt_voice_clone.png', frameConstraints.maxHeight, () {}),
                                   _buildFeatureColumn('coin_ai_singer.png', 'lbl_ai_singer.png', 'txt_ai_singer.png', frameConstraints.maxHeight, () {}),
-                                  _buildFeatureColumn('coin_voice_cleaner.png', 'lbl_voice_cleaner.png', 'txt_voice_cleaner.png', frameConstraints.maxHeight, triggerVoiceCleaner), // تفعيل زر التنظيف وتنعيم الحروف
-                                  _buildFeatureColumn('coin_music_composer.png', 'lbl_music_composer.png', 'txt_music_composer.png', frameConstraints.maxHeight, triggerMusicComposer), // تفعيل زر اللحن المفرغ
+                                  _buildFeatureColumn('coin_voice_cleaner.png', 'lbl_voice_cleaner.png', 'txt_voice_cleaner.png', frameConstraints.maxHeight, triggerVoiceCleaner), // تفعيل زر التنظيف
+                                  _buildFeatureColumn('coin_music_composer.png', 'lbl_music_composer.png', 'txt_music_composer.png', frameConstraints.maxHeight, triggerMusicComposer), // تفعيل زر اللحن
                                 ],
                               ),
                             )
@@ -245,4 +245,8 @@ class _FinalStudioDashboardState extends State<FinalStudioDashboard> with Ticker
               itemCount: 5,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
+                  child: AspectRatio(
+                    aspectRatio: 2.8,
+                    
