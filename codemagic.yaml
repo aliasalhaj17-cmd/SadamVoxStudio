@@ -1,0 +1,25 @@
+publishing:
+  email:
+    recipients:
+      - sadam_vox_user@example.com # سيتم إرسال رابط التطبيق فوراً إلى بريدك الإلكتروني هنا
+
+workflows:
+  android-workflow:
+    name: SADAM VOX Build Workflow
+    max_build_duration: 15
+    instance_type: mac_mini_m1
+    environment:
+      flutter: stable
+      xcode: stable
+    triggering:
+      events:
+        - push
+    scripts:
+      - name: Set up local properties
+        script: echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+      - name: Build Android APK Without Code Signing
+        script: |
+          flutter build apk --release --no-sound-null-safety
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+      
